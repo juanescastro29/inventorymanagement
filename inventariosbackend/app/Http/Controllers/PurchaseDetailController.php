@@ -112,9 +112,7 @@ class PurchaseDetailController extends Controller
 
             $detailUpdated = PurchaseDetail::where('id', $detail_id)->update($detailData);
             if ($detailUpdated) {
-                return [
-                    'message' => 'Detail updated'
-                ];
+                return response("Detail deleted", 200);
             } else {
                 return [
                     'statusCode' => 2323

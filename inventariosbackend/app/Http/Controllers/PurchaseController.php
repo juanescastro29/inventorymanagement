@@ -110,9 +110,7 @@ class PurchaseController extends Controller
             $purchaseDeleted = $purchase->delete();
 
             if ($purchaseDeleted) {
-                return [
-                    'message' => 'Purchase deleted'
-                ];
+                return response("Purchase deleted", 200);
             } else {
                 return [
                     'statusCode' => 2323

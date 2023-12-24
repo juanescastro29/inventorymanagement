@@ -114,9 +114,7 @@ class ProductController extends Controller
             $product->purchasesDetails()->delete();
             $deletedProduct = Product::where('id', $id)->delete();
             if ($deletedProduct) {
-                return [
-                    'message' => 'Product deleted'
-                ];
+                return response("Product deleted", 200);
             } else {
                 return [
                     'statusCode' => 2323

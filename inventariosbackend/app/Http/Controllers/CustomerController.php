@@ -101,7 +101,6 @@ class CustomerController extends Controller
     function deleteCustomer($id)
     {
         try {
-            echo $id;
             $customer = Customer::find($id);
             if (!$customer) {
                 return [
@@ -110,14 +109,11 @@ class CustomerController extends Controller
             }
 
             $deletedCustomer = Customer::where('id', $id)->delete();
+
             if ($deletedCustomer) {
-                return [
-                    "message" => "Customer deleted"
-                ];
+                return response("Customer deleted", 200);
             } else {
-                return [
-                    "statusCode" => 2323
-                ];
+                return response("Customer not deleted", 409);
             }
         } catch (\Throwable $th) {
             return $th->getMessage();

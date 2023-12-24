@@ -20,13 +20,13 @@ export default class SuppliersApi{
     }
 
     static async updateSupplier(supplierData, supplierId){
-        return await api.put(`supplier/${supplierId}`, supplierData)
+        return await api.put(`suppliers/${supplierId}`, supplierData)
         .then(getResponseData)
         .catch(escalateError);
     }
 
     static async deleteSupplier(supplierId){
-        return await api.delete(`supplier/${supplierId}`)
+        return await api.delete(`suppliers/${supplierId}`)
         .then(getResponseData)
         .catch(escalateError);
     }

@@ -117,9 +117,7 @@ class SaleController extends Controller
             $saleDeleted = $sale->delete();
 
             if ($saleDeleted) {
-                return [
-                    'message' => 'Sale deleted'
-                ];
+                return response("Sale deleted", 200);
             } else {
                 return [
                     'statusCode' => 2323

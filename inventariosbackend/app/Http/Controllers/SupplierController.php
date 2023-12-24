@@ -100,9 +100,8 @@ class SupplierController extends Controller
     function deleteSupplier($id)
     {
         try {
-
             $supplier = Supplier::find($id);
-            if ($supplier) {
+            if (!$supplier) {
                 return [
                     'message' => 'Supplier not found'
                 ];
@@ -110,9 +109,7 @@ class SupplierController extends Controller
 
             $deletedSupplier = Supplier::where('id', $id)->delete();
             if ($deletedSupplier) {
-                return [
-                    "message" => "Supplier deleted"
-                ];
+                return response("Supplier deleted", 200);
             } else {
                 return [
                     "statusCode" => 2323
